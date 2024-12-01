@@ -22,6 +22,8 @@
 
 
 
+
+
 //Rotate the arry by K
 
 // function rotateArry(nums, k) {
@@ -60,5 +62,18 @@
 
 
 
-//remove duplicate elements from the sorted array..
 
+
+//Remove duplicate elements from the sorted array..
+
+function RemoveDuplicate(nums) {
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (nums[i] === nums[i + 1]) {
+            nums.splice(i + 1, 1)
+            i--;
+        }
+    }
+    return nums.length
+}
+
+console.log(RemoveDuplicate([1, 1, 2]))
