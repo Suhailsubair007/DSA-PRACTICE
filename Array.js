@@ -125,3 +125,39 @@
 // console.log(printUniqueElements([1,1,2,3,4,5,5,6,6,7,8]))
 
 //=======================================================================================================
+
+
+
+// SUB-ARRAY
+
+//Maximum sum of Sub array -- Brute force approch
+
+
+// function MaxSubArry(nums) {
+//     let maxSum = nums[0];
+//     let start = 0;
+//     let end =0;
+//     for (let i = 0; i < nums.length; i++) {
+//         let currentSum = 0;
+//         for (let j = i; j < nums.length; j++) {
+//             currentSum = currentSum + nums[j];
+//             if (currentSum > maxSum) {
+//                 maxSum = currentSum
+//                 start = i;
+//                 end = j;
+//             }
+//         }
+//     }
+//     return nums.splice(start,end +1)
+
+// }
+
+// console.log(MaxSubArry([5,4,-1,7,8]))
+
+// Time complexity ==> O(n^2)
+// Space Complexity ==> O(1)
+
+
+
+
+
