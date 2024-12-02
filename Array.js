@@ -21,7 +21,7 @@
 
 
 
-
+// ==================================================================================================
 
 
 //Rotate the arry by K
@@ -60,20 +60,68 @@
 //Space Complexity ==> O(1)
 
 
+// ====================================================================================================
 
 
 
+//Remove duplicate elements from the sorted array.. (Count of unique elemnts)
 
-//Remove duplicate elements from the sorted array..
+// function RemoveDuplicate(nums) {
+//     for (let i = 0; i < nums.length - 1; i++) {
+//         if (nums[i] === nums[i + 1]) {
+//             nums.splice(i + 1, 1)
+//             i--;
+//         }
+//     }
+//     return nums.length
+// }
 
-function RemoveDuplicate(nums) {
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] === nums[i + 1]) {
-            nums.splice(i + 1, 1)
-            i--;
-        }
-    }
-    return nums.length
-}
+// console.log(RemoveDuplicate([1, 1, 2]))
 
-console.log(RemoveDuplicate([1, 1, 2]))
+
+//Without JS Methods... --> Two pointer Approch...
+
+// function RemoveDuplicatesNew(nums) {
+//     if (nums.length == 0) return 0
+
+//     let i = 0;
+
+//     for (j = 1; j < nums.length; j++) {
+//         if(nums[i] !== nums[j]){
+//             i++
+//             nums[i] = nums[j]
+//         }
+//     }
+//     return i+1
+
+// }
+
+// console.log(RemoveDuplicatesNew([1,1,1,2,3,4,5,6,7,7,7,8,9]))
+
+
+// Time Complexity ==> O(n)
+// Space Complexity ==> O(1)
+
+
+// ==========================================================================================================
+
+
+// print unique elements in the arrayy 
+
+// function printUniqueElements(nums) {
+//     if (nums.length === 0) return nums;
+//     let i = 0;
+//     for (let j = 0; j < nums.length; j++) {
+//         if(nums[i] !== nums[j]){
+//             i++;
+//             nums[i] = nums[j]
+//         }
+//     }
+//     nums.length = i+1;
+//     return nums
+// }
+
+
+// console.log(printUniqueElements([1,1,2,3,4,5,5,6,6,7,8]))
+
+//=======================================================================================================
