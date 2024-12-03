@@ -1,52 +1,3 @@
-// class Node{
-//     constructor(data){
-//         this.data = data;
-//         this.next = null;
-//     }
-// }
-
-// class LinkedList {
-//     constructor() {
-//         this.head = null;
-//     }
-
-//     addFirst(data){
-//         const newnode = new Node(data);
-//         newnode.next = this.head;
-//         this.head = newnode;
-//     }
-
-//     addLast(data){
-//         const node = new Node(data);
-
-//         if(this.head === null){
-//             this.head = node;
-//             return
-//         }
-
-//         let current = this.head;
-//         while (current.next) {
-//             current = current.next;
-//         }
-//         current.next = node
-//     }
-
-//     printList(){
-//         let current = this.head;
-//         while (current) {
-//             console.log(current.data)
-//             current = current.next;
-//         }
-//     }
-// }
-
-// const ll = new LinkedList()
-
-// ll.addFirst(29)
-// ll.addLast(100)
-// ll.printList()
-
-
 class Node {
     constructor(data) {
         this.data = data;
@@ -54,52 +5,77 @@ class Node {
     }
 }
 
+const node = new Node(100);
+console.log(node)
 
-class LinkedLIst{
-    constructor(){
+
+class LinkedList {
+    constructor() {
         this.head = null;
+        this.size = 0;
     }
 
-    addFirst(data){
-        const node = new Node(data);
+    addFirst(data) {
+        const node = new Node(data)
         node.next = this.head;
         this.head = node;
+        this.size++;
     }
 
-    addLast(data){
+    addLast(data) {
         const node = new Node(data)
-        if(this.head === null){
+
+        if (this.head === null) {
+            this.head = node;
+            this.size++
+            return
+        }
+
+        let current = this.head;
+
+        while (current.next) {
+            current = current.next;
+        }
+        current.next = node;
+        this.size++
+    }
+
+    addAt(data,index){
+        if(index < 0 || index > this.size){
+            console.log("invalid index.. try again..")
+        }
+
+        const node = new Node(data);
+        if(index = 0 ){
+            node.next = this.head;
             this.head = node;
         }
 
         let current = this.head;
-        while (current.next) {
+        for (let i = 0; i < index -1; i++) {
             current = current.next;
         }
-        current.next = node
+        node.next = current.next
+        current.next = node;
+        this.size++;
     }
 
-    printList(){
-        let curret = this.head;
-        while (curret) {
-            console.log(curret.data)
-            curret = curret.next;
+
+
+    printLIst() {
+        let current = this.head;
+        while (current) {
+            console.log(current.data)
+            current = current.next;
         }
     }
 }
 
 
-const ll = new LinkedLIst()
+const ll = new LinkedList()
 ll.addFirst(10)
-ll.addFirst(200)
-ll.addLast(1000)
-ll.addFirst(12)
-ll.printList()
-
-
-
-
-
-
-
-
+ll.addFirst(20)
+ll.addLast(30)
+ll.addLast(40)
+ll.addAt(999,2)
+ll.printLIst()
