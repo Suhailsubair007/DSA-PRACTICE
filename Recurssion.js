@@ -180,8 +180,8 @@ function subset(nums) {
 
     RecursiveSubset(nums, 0)
     return result
-
 }
+
 
 console.log(subset([1,2,3]))
 
