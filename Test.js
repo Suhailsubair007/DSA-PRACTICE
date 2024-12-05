@@ -76,21 +76,67 @@ class LinkedList {
         this.size--;
     }
 
-    removeLast(){
+    removeLast() {
         if (this.head === null) return
-        if(!this.head.next){
+        if (!this.head.next) {
             this.head = null;
-        }else{
+        } else {
             let current = this.head;
-            while (current.next && current.next.next){
+            while (current.next && current.next.next) {
                 current = current.next;
             }
             current.next = null
         }
         this.size--
     }
+    removeAt(index) {
+        if (index < 0 || index > this.size) {
+            console.log("invalid index")
+        }
+        if (index === 0) {
+            this.removeFirst();
+            return
+        }
+        let current = this.head;
+        for (let i = 0; i < index - 1; i++) {
+            current = current.next
+        }
+        current.next = current.next.next;
+        this.size--;
+    }
 
+    reverse() {
+        let current = this.head;
+        let prev = null;
+    
+        while (current !== null) {
+            let next = current.next; // Save the next node
+            current.next = prev;     // Reverse the pointer
+            prev = current;          // Move prev to the current node
+            current = next;          // Move current to the next node
+        }
+    
+        this.head = prev; // Update the head to the new front of the list
+    }
+
+    deleteMiddle(){
+        if(this.head === null){
+            console.log("the list is empty..")
+            return 
+        }
+
+        if(this.size === 1){
+            this.head = null;
+            this.size--
+            return
+        }
+
+        const middle = Math.floor(this.size / 2)
+        this.removeAt(middle);
+    }
+    
 }
+
 
 
 
@@ -102,4 +148,9 @@ ll.addLast(200);
 ll.addLast(300);
 ll.addAt(33, 1);
 ll.printList();
-console.log("Size of the LinkedList:", ll.getSize());
+ll.deleteMiddle()
+console.log("=====================")
+ll.printList()
+
+
+
