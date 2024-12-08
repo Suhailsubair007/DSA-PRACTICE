@@ -37,7 +37,6 @@ function maultipy(arr) {
 
 
 function factorial(n) {
-    console.log(n)
     if (n <= 0) return 1
     return n * factorial(n - 1)
 }
@@ -117,12 +116,12 @@ function fibnocci(n) {
 
 //Using recursion
 
-function fibReccursion(n) {
-    if (n <= 1) return n;
+    function fibReccursion(n) {
+        if (n <= 1) return n;
 
-    return fibReccursion(n - 1) + fibReccursion(n - 2)
+        return fibReccursion(n - 1) + fibReccursion(n - 2)
 
-}
+    }
 
 // console.log(fibReccursion(8))
 
