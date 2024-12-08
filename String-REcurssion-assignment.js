@@ -10,25 +10,25 @@ function recursiveCharremove(str, char) {
     }
 }
 
-//   console.log(recursiveCharremove("malayalam" , "a"))
+  console.log(recursiveCharremove("malayalam" , "a"))
 
 //===========================================================================================================
 //REVERE STRING - RECURSION 
 function stringReversal(str) {
-    console.log(str)
+    // console.log(str)
     if (str.length === 1) {
         return str
     }
     return stringReversal(str.substr(1)) + str.charAt(0);
 }
-//   console.log(stringReversal("suhail"))
+  console.log(stringReversal("suhail"))
 
 
 //===========================================================================================================
 // PALINDROME NUMBER - RECURSION
 function palindromeNUmber(n) {
     let str = n.toString()
-    console.log(str)
+    // console.log(str)
     if (str.length === 1) return true
     if (str[0] !== str[str.length - 1]) {
         return false
@@ -36,7 +36,7 @@ function palindromeNUmber(n) {
     return palindromeNUmber(str.slice(1, str.length - 1))
 }
 
-//   console.log(palindromeNUmber(121))
+  console.log(palindromeNUmber(121))
 //===========================================================================================================
 //PALINDROME STRING - RECCURSION
 function plaindrome_string(str) {
@@ -68,7 +68,7 @@ function find_length(str) {
     return 1 + find_length(str.substr(1))
 }
 
-// console.log(find_length("suhail"))
+console.log(find_length("suhail"))
 
 
 //===========================================================================================================
@@ -105,7 +105,7 @@ function firstUNiqueElementArry(arr) {
     return -1
 }
 
-// console.log(firstUNiqueElementArry([1, 2, 3, 1, 2, 3, 4, 5, 6, 4, 5, 7, 8, 9,]))
+console.log(firstUNiqueElementArry([1, 2, 3, 1, 2, 3, 4, 5, 6, 4, 5, 7, 8, 9,]))
 
 //===========================================================================================================
 
