@@ -6,7 +6,7 @@ function luch(person) {
     return luch(person + 1)
 }
 
-// console.log("output==>", luch(1))
+console.log("output==>", luch(1))
 
 
 //Conver a normal function into reccursive function 
@@ -182,6 +182,6 @@ function subset(nums) {
 }
 
 
-console.log(subset([1,2,3]))
+// console.log(subset([1,2,3]))
 
 
