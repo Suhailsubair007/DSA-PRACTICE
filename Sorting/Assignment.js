@@ -83,7 +83,7 @@ function quick_sort(arr) {
     return [...quick_sort(left), pivot, ...quick_sort(right)]
 }
 
-console.log("QUICK SORT ====>",quick_sort([2, 3, 4, 1, 2, 7, 6, 43, 56, 90, 12, 34, 32, 12, 55]))
+// console.log("QUICK SORT ====>",quick_sort([2, 3, 4, 1, 2, 7, 6, 43, 56, 90, 12, 34, 32, 12, 55]))
 
 //Time complexity ==>  O(nlogn)
 //Space complexity ==> O(n)
