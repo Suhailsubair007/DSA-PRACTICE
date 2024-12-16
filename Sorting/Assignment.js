@@ -166,7 +166,7 @@ function merge(left, right) {
 }
 
 
-console.log("MERGE SORT ====>",merge_sort([2, 5, 7, 8, 23, 41, 6, 22, 99, 54, 78, 18, 90]));
+// console.log("MERGE SORT ====>",merge_sort([2, 5, 7, 8, 23, 41, 6, 22, 99, 54, 78, 18, 90]));
 
 
 //Time complexity --> O(nlogn)
