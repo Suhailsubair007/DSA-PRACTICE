@@ -69,51 +69,51 @@ function reverse_string(str) {
 
 
 
-//IMPLEMET STACK USING QUEUE DS ===>
+// IMPLEMET STACK USING QUEUE DS ===>
 
 
-    // var stack_using_queue = function () {
-    //     this.q1 = [];
-    //     this.q2 = [];
-    // }
+    var stack_using_queue = function () {
+        this.q1 = [];
+        this.q2 = [];
+    }
     
-    // stack_using_queue.prototype.push = function (x) {
-    //     while (this.q1.length !== 0) {
-    //         this.q2.push(this.q1.shift());
-    //     }
-    //     this.q1.push(x);
-    //     while (this.q2.length !== 0) {
-    //         this.q1.push(this.q2.shift());
-    //     }
-    // }
+    stack_using_queue.prototype.push = function (x) {
+        while (this.q1.length !== 0) {
+            this.q2.push(this.q1.shift());
+        }
+        this.q1.push(x);
+        while (this.q2.length !== 0) {
+            this.q1.push(this.q2.shift());
+        }
+    }
     
-    // stack_using_queue.prototype.pop = function () {
-    //     return this.q1.shift();
-    // }
+    stack_using_queue.prototype.pop = function () {
+        return this.q1.shift();
+    }
     
-    // stack_using_queue.prototype.top = function () {
-    //     return this.q1[0];
-    // }
+    stack_using_queue.prototype.top = function () {
+        return this.q1[0];
+    }
     
-    // stack_using_queue.prototype.isEmpty = function () {
-    //     return this.q1.length === 0;
-    // }
+    stack_using_queue.prototype.isEmpty = function () {
+        return this.q1.length === 0;
+    }
     
-    // // Prototype to print the stack
-    // stack_using_queue.prototype.printStack = function () {
-    //     console.log("Current Stack:", this.q1);
-    // }
+    // Prototype to print the stack
+    stack_using_queue.prototype.printStack = function () {
+        console.log("Current Stack:", this.q1);
+    }
     
-    // // Example usage
+    // Example usage
     // const stack = new stack_using_queue();
     
-    // stack.push(20);
-    // stack.push(30);
-    // stack.push(40);
-    // stack.printStack(); // Output: Current Stack: [40, 30, 20]
+    stack.push(20);
+    stack.push(30);
+    stack.push(40);
+    stack.printStack(); // Output: Current Stack: [40, 30, 20]
     
-    // stack.pop();
-    // stack.printStack(); // Output: Current Stack: [30, 20]
+    stack.pop();
+    stack.printStack(); // Output: Current Stack: [30, 20]
     
 
 

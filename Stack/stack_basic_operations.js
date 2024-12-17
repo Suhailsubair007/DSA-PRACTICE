@@ -56,9 +56,25 @@ class Stack {
             temp.push(popped);
         }
 
-    
-
         return temp.join(' ')
+    }
+    sort() {
+        if (this.isEmpty()) return;
+
+        const tempArray = [];
+
+        // Transfer the stack to an array
+        while (!this.isEmpty()) {
+            tempArray.push(this.pop());
+        }
+
+        // Sort the array (you can sort in ascending or descending order)
+        tempArray.sort((a, b) => a - b); // Ascending order
+
+        // Transfer the sorted array back to the stack
+        for (let i = tempArray.length - 1; i >= 0; i--) {
+            this.push(tempArray[i]);
+        }
     }
 }
 
