@@ -1,9 +1,13 @@
 class Stack {
-    constructor() {
+    constructor(maxSize) {
         this.stack = [];
+        this.maxSize = maxSize || Infinity; // If no max size is provided, set it to Infinity (no limit)
     }
 
     push(data) {
+        if (this.isFull()) {
+            return "Stack is full..";
+        }
         this.stack.push(data);
     }
 
@@ -27,6 +31,10 @@ class Stack {
 
     isEmpty() {
         return this.stack.length === 0;
+    }
+
+    isFull() {
+        return this.size() === this.maxSize;
     }
 
     print() {
@@ -56,27 +64,27 @@ class Stack {
             temp.push(popped);
         }
 
-        return temp.join(' ')
+        return temp.join(' ');
     }
+
     sort() {
         if (this.isEmpty()) return;
 
         const tempArray = [];
 
-        // Transfer the stack to an array
         while (!this.isEmpty()) {
             tempArray.push(this.pop());
         }
+        tempArray.sort((a, b) => a - b);
 
-        // Sort the array (you can sort in ascending or descending order)
-        tempArray.sort((a, b) => a - b); // Ascending order
-
-        // Transfer the sorted array back to the stack
         for (let i = tempArray.length - 1; i >= 0; i--) {
             this.push(tempArray[i]);
         }
     }
 }
+
+
+
 
 // Test the Stack class and the reverse method
 const stack = new Stack();
