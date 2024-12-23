@@ -1,0 +1,29 @@
+1. Binary Trees Basics
+Binary Tree vs Binary Search Tree
+Complete Binary Tree Example
+Find the Left Child in a Heap (Simple Code)
+2. Binary Search Tree (BST)
+Time Complexity of Binary Search Tree
+Tree Topology
+Find LCA (Lowest Common Ancestor) Between Two Nodes
+Applications of Trees
+3. Advanced Trees
+AVL Tree
+Self-Balancing Tree
+Splay Tree
+B-Tree
+Compressed Trie
+Trie Implementation
+4. Graph Basics
+Weighted Graph
+Weight vs Depth of a Graph
+5. Graph Algorithms
+Dijkstra's Algorithm
+Minimum Spanning Tree
+6. Traversals and Comparisons
+DFS (Depth-First Search) vs BFS (Breadth-First Search)
+Applications of Graphs
+7. Advanced Concepts
+Backtracking
+Heap Sort
+The "Heap Illusion" (possible typo, clarify if needed)
