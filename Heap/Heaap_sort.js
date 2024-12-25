@@ -1,50 +1,39 @@
-// Heap Sort in JavaScript
-
-// Function to heapify a subtree rooted with node i
+// Function to heapify a subtree
 function heapify(arr, n, i) {
-    let largest = i; // Initialize largest as root
-    let left = 2 * i + 1; // left = 2*i + 1
-    let right = 2 * i + 2; // right = 2*i + 2
+    let largest = i;       // Assume root is the largest
+    let left = 2 * i + 1;  // Left child index
+    let right = 2 * i + 2; // Right child index
 
-    // If left child is larger than root
+    // Check if left child is larger
     if (left < n && arr[left] > arr[largest]) {
         largest = left;
     }
 
-    // If right child is larger than largest so far
+    // Check if right child is larger
     if (right < n && arr[right] > arr[largest]) {
         largest = right;
     }
 
-    // If largest is not root
-    if (largest != i) {
-        let swap = arr[i];
-        arr[i] = arr[largest];
-        arr[largest] = swap;
-
-        // Recursively heapify the affected sub-tree
-        heapify(arr, n, largest);
+    // Swap and continue heapifying if root is not the largest
+    if (largest !== i) {
+        [arr[i], arr[largest]] = [arr[largest], arr[i]]; // Swap using destructuring
+        heapify(arr, n, largest); // Recursively heapify
     }
 }
 
-// Main function to do heap sort
+// Main heap sort function
 function heapSort(arr) {
     let n = arr.length;
 
-    // Build heap (rearrange array)
+    // Build max heap
     for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
         heapify(arr, n, i);
     }
 
-    // One by one extract an element from heap
+    // Extract elements one by one
     for (let i = n - 1; i > 0; i--) {
-        // Move current root to end
-        let temp = arr[0];
-        arr[0] = arr[i];
-        arr[i] = temp;
-
-        // Call max heapify on the reduced heap
-        heapify(arr, i, 0);
+        [arr[0], arr[i]] = [arr[i], arr[0]]; // Move root to the end
+        heapify(arr, i, 0); // Restore heap property
     }
 }
 

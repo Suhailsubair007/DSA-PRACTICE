@@ -107,40 +107,72 @@ class Graph {
 
 const graph = new Graph();
 
-graph.addVertex("A");
-graph.addVertex("B");
-graph.addVertex("C");
-graph.addEdge("A", "B");
-graph.addEdge("A", "C");
-graph.addEdge("B", "C");
+// graph.addVertex("A");
+// graph.addVertex("B");
+// graph.addVertex("C");
+// graph.addVertex("A"); // Duplicate vertex
+
+// console.log(graph.adjacencyList);
+
+
+
+// graph.addEdge("A", "B");
+// graph.addEdge("A", "C");
+// graph.addEdge("B", "C");
+// graph.addEdge("D", "E"); // Adds new vertices D and E
+
+// console.log(graph.adjacencyList);
+
+
+// console.log(graph.hasEdge("A", "B")); // Expected Output: true
+// console.log(graph.hasEdge("A", "C")); // Expected Output: true
+// console.log(graph.hasEdge("B", "C")); // Expected Output: true
+// console.log(graph.hasEdge("A", "D")); // Expected Output: false
 
 graph.display();
 // Expected Output:
 // A -> [ 'B', 'C' ]
 // B -> [ 'A', 'C' ]
 // C -> [ 'A', 'B' ]
-
-console.log(graph.hasEdge("A", "B")); // Expected Output: true
-console.log(graph.hasEdge("A", "C")); // Expected Output: true
-console.log(graph.hasEdge("B", "C")); // Expected Output: true
-console.log(graph.hasEdge("A", "D")); // Expected Output: false
+// D -> [ 'E' ]
+// E -> [ 'D' ]
 
 
-graph.removeEdge("A", "B");
-graph.display();
-// Expected Output:
-// A -> [ 'C' ]
-// B -> [ 'C' ]
-// C -> [ 'A', 'B' ]
+// graph.removeEdge("A", "B");
 
-console.log(graph.hasEdge("A", "B")); // Expected Output: false
+// console.log(graph.adjacencyList);
+// // Expected Output:
+// // {
+// //   A: Set { 'C' },
+// //   B: Set { 'C' },
+// //   C: Set { 'A', 'B' },
+// //   D: Set { 'E' },
+// //   E: Set { 'D' }
+// // }
 
+// console.log(graph.hasEdge("A", "B")); // Expected Output: false
 
-graph.removeVertex("C");
-graph.display();
-// Expected Output:
-// A -> []
-// B -> []
+// console.log('==========================')
+// graph.removeVertex("C");
 
-console.log(graph.hasEdge("A", "C")); // Expected Output: false
-console.log(graph.hasEdge("B", "C")); // Expected Output: false
+// console.log(graph.adjacencyList);
+// // Expected Output:
+// // {
+// //   A: Set(),
+// //   B: Set(),
+// //   D: Set { 'E' },
+// //   E: Set { 'D' }
+// // }
+
+// console.log(graph.hasEdge("B", "C")); // Expected Output: false
+
+graph.addEdge("A", "B");
+graph.addEdge("B", "D");
+graph.addEdge("D", "E");
+
+console.log(graph.bfs("A")); 
+// Expected Output: [ 'A', 'B', 'D', 'E' ]
+
+console.log(graph.dfs("A")); 
+// Expected Output: [ 'A', 'B', 'D', 'E' ]
+

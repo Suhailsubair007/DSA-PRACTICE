@@ -82,27 +82,8 @@ class Trie {
         };
 
         dfs(current, prefix);
-        return words;
-    }
-    findLongestPrefix(prefix) {
-        let current = this.root;
-        let longestPrefix = '';
-        let path = '';
-    
-        for (let char of prefix) {
-            if (!current.children[char]) {
-                break; // Stop if the prefix cannot be extended
-            }
-            path += char; // Extend the current path
-            current = current.children[char];
-    
-            // Check if the current node marks the end of a word
-            if (current.wordEnd) {
-                longestPrefix = path; // Update the longest prefix
-            }
-        }
-    
-        return longestPrefix;
+        let sorted =  words.sort((a,b) => a - b );
+        return sorted[sorted.length-1]
     }
     
 }
@@ -113,6 +94,7 @@ let trie = new Trie();
 trie.insert("cat");
 trie.insert("car");
 trie.insert("cart");
+trie.insert("careman");
 
 console.log(trie.search("cat")); // true
 console.log(trie.search("car")); // true
@@ -123,10 +105,10 @@ console.log(trie.search("car")); // false
 console.log(trie.search("cat")); // true
 console.log(trie.search("cart")); // true
 console.log(trie.autocomplete('ca'))
-console.log("Longet ===>",trie.findLongestPrefix('ca'))
+// console.log("Longet ===>",trie.findLongestPrefix('ca'))
 
 
-console.log(trie)
+// console.log(trie)
 
 
 
