@@ -10,7 +10,7 @@ class BST {
     constructor() {
         this.root = null;
     }
-    
+
     isEmpty() {
         return this.root === null;
     }
@@ -127,27 +127,75 @@ class BST {
         return root
 
     }
+    maxDepth(node) {
+        if (!node) return 0
+        let l = this.maxDepth(node.left)
+        let r = this.maxDepth(node.right)
+
+        return Math.max(l, r) + 1
+    }
+    validateBst(root, min = null, max = null) {
+        if (!root) return true
+        if ((min != null && root.value <= min) || (max != null && root.value >= max)) {
+            return false
+        }
+        return this.validateBst(root.left, min, root.value) && this.validateBst(root.right, root.value, max)
+    }
+    kthSmallest(root, k) {
+        let result = [];
+        this.inOrderTraversal(root, result);
+        return result[k - 1];
+    }
+
+    inOrderTraversal(node, result) {
+        if (!node) return;
+        this.inOrderTraversal(node.left, result);
+        result.push(node.value);
+        this.inOrderTraversal(node.right, result);
+    }
+
+    findClosestValue(root, target) {
+        let closest = root.value;
+        while (root !== null) {
+            if (Math.abs(target - closest) > Math.abs(target - root.value)) {
+                closest = root.value;
+            }
+            if (target < root.value) {
+                root = root.left;
+            } else if (target > root.value) {
+                root = root.right;
+            } else {
+                break;
+            }
+        }
+        return closest;
+    }
 }
 
 const bst = new BST();
-bst.insert(10);
-bst.insert(5);
-bst.insert(15);
-bst.insert(3);
-bst.insert(7);
-// console.log("=====PRE-ORDER=====")
-// bst.preOrder(bst.root)
-// console.log("=====IN-ORDER=====")
-// bst.inOrder(bst.root)
-// console.log("=====POST-ORDER=====")
-// bst.postOrder(bst.root)
-console.log('=====LEVAL-ORDER=====')
-bst.levelOrder(bst.root)
-// console.log("====MIN=====")
-// console.log(bst.min(bst.root))
-// console.log("====MAX=====")
-// console.log(bst.max(bst.root))
-console.log("<========================================>")
-bst.delete(7)
-bst.levelOrder(bst.root)
+[5, 3, 6, 2, 4, 1].forEach(value => bst.insert(value));
 
+// Test traversals
+console.log("Level Order:");
+bst.levelOrder(); // Should print: 5,3,6,2,4,1
+
+console.log("\nIn Order:");
+bst.inOrder(bst.root); // Should print: 1,2,3,4,5,6
+
+console.log("\nPre Order:");
+bst.preOrder(bst.root); // Should print: 5,3,2,1,4,6
+
+console.log("\nPost Order:");
+bst.postOrder(bst.root); // Should print: 1,2,4,3,6,5
+
+// Verify structure
+console.log("\nMax Depth:", bst.maxDepth(bst.root)); // Should be 4
+console.log("Is Valid BST:", bst.validateBst(bst.root)); // Should be true
+console.log("Min Value:", bst.min(bst.root)); // Should be 1
+console.log("Max Value:", bst.max(bst.root)); // Should be 6
+
+console.log("\nK th smallest in BST")
+console.log(bst.kthSmallest(bst.root, 1))
+
+console.log("---------------------------------------------")
+console.log(bst.findClosestValue(bst.root , 7))

@@ -106,29 +106,78 @@ class Heap {
 
         if (this.compare(this.parentIndex(index), index)) {
             this.bubbleUp(index);
-        } else if (this.compare(index, this.leftChildIndex(index))) {
+        } else if (this.leftChildIndex(index) < this.heap.length && this.compare(index, this.leftChildIndex(index))) {
             this.bubbleDown(index);
         }
     }
+    // Heap Sort
+    heapSort() {
+        const sortedArray = [];
+        const originalHeap = [...this.heap]; // Copy the original heap
+
+        while (this.heap.length > 0) {
+            sortedArray.push(this.extract()); // Extract the root and add to sorted array
+        }
+
+        this.heap = originalHeap; // Restore the original heap
+        return sortedArray;
+    }
 }
 
-// Example Usage:
-// Min-Heap
+
+// Create a Min-Heap instance
 const minHeap = new Heap("min");
+
+// Test insert method
 minHeap.insert(10);
 minHeap.insert(5);
 minHeap.insert(20);
-minHeap.insert(3);
-console.log("Min-Heap:", minHeap.heap); // [3, 5, 20, 10]
-console.log("Extract Min:", minHeap.extract()); // 3
-console.log("Updated Min-Heap:", minHeap.heap); // [5, 10, 20]
+minHeap.insert(1);
+console.log("Min-Heap after inserts:", minHeap.heap); // [1, 5, 20, 10]
 
-// Max-Heap
+// Test peek method
+console.log("Peek Min-Heap:", minHeap.peek()); // 1
+
+// Test extract method
+console.log("Extract Min-Heap:", minHeap.extract()); // 1
+console.log("Min-Heap after extract:", minHeap.heap); // [5, 10, 20]
+
+// Test heapify method
+minHeap.heapify([3, 9, 2, 1, 4, 5]);
+console.log("Min-Heap after heapify:", minHeap.heap); // [1, 3, 2, 9, 4, 5]
+
+// Test update method
+minHeap.update(2, 0);
+console.log("Min-Heap after update:", minHeap.heap); // [0, 3, 1, 9, 4, 5]
+
+// Test heapSort method
+console.log("Heap Sort:", minHeap.heapSort()); // [0, 1, 3, 4, 5, 9]
+
+// Create a Max-Heap instance
 const maxHeap = new Heap("max");
+
+// Test insert method
 maxHeap.insert(10);
 maxHeap.insert(5);
 maxHeap.insert(20);
-maxHeap.insert(3);
-console.log("Max-Heap:", maxHeap.heap); // [20, 10, 5, 3]
-console.log("Extract Max:", maxHeap.extract()); // 20
-console.log("Updated Max-Heap:", maxHeap.heap); // [10, 3, 5]
+maxHeap.insert(1);
+console.log("Max-Heap after inserts:", maxHeap.heap); // [20, 10, 5, 1]
+
+// Test peek method
+console.log("Peek Max-Heap:", maxHeap.peek()); // 20
+
+// Test extract method
+console.log("Extract Max-Heap:", maxHeap.extract()); // 20
+console.log("Max-Heap after extract:", maxHeap.heap); // [10, 1, 5]
+
+// Test heapify method
+maxHeap.heapify([3, 9, 2, 1, 4, 5]);
+console.log("Max-Heap after heapify:", maxHeap.heap); // [9, 4, 5, 1, 3, 2]
+
+// Test update method
+maxHeap.update(2, 10);
+console.log("Max-Heap after update:", maxHeap.heap); // [10, 4, 9, 1, 3, 2]
+
+// Test heapSort method
+console.log("Heap Sort:", maxHeap.heapSort()); // [10, 9, 4, 3, 2, 1]
+

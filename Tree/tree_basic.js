@@ -36,6 +36,30 @@ class Tree {
             this.dfs(child);
         }
     }
+    bfs() {
+        const queue = [this.root];
+        while (queue.length > 0) {
+            const node = queue.shift();
+            console.log(node.value);
+            for (let child of node.children) {
+                queue.push(child);
+            }
+        }
+    }
+    isBST(node = this.root, min = null, max = null) {
+        if (!node) {
+            return true;
+        }
+        if ((min !== null && node.value <= min) || (max !== null && node.value >= max)) {
+            return false;
+        }
+        for (let child of node.children) {
+            if (!this.isBST(child, min, node.value) || !this.isBST(child, node.value, max)) {
+                return false;
+            }
+        }
+        return true;
+    }
     // inorder, preOrder, and postOrder methods are not applicable for general trees
 }
 const myTree = new Tree(1);
@@ -44,5 +68,7 @@ myTree.addNode(1, 3);
 myTree.addNode(2, 4);
 myTree.addNode(2, 5);
 
-console.log(myTree)
+// console.log(myTree)
 myTree.dfs()
+console.log("----------------------")
+myTree.bfs()

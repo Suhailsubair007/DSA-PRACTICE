@@ -7,7 +7,7 @@ class Node {
 }
 
 function inorder(node) {
-    if(node == null){
+    if (node == null) {
         return
     }
     inorder(node.left)
@@ -15,7 +15,7 @@ function inorder(node) {
     inorder(node.right)
 }
 function preOrder(node) {
-    if(node == null){
+    if (node == null) {
         return
     }
     console.log(node.data)
@@ -24,10 +24,10 @@ function preOrder(node) {
 }
 
 function postOrder(node) {
-    if(node == null){
+    if (node == null) {
         return
     }
-    
+
     postOrder(node.left)
     postOrder(node.right)
     console.log(node.data)
@@ -39,23 +39,13 @@ root.right = new Node(3);
 root.left.left = new Node(4);
 root.left.right = new Node(5);
 
-// inorder(root)
-// preOrder(root)
-
-// console.log(root)
-Node.prototype.printNode = function() {
-    const leftChild = this.left ? this.left.data : 'null';
-    const rightChild = this.right ? this.right.data : 'null';
-    console.log(`Node: ${this.data}, Left Child: ${leftChild}, Right Child: ${rightChild}`);
-};
-
-function printTree(node) {
-    if (node == null) {
-        return;
-    }
-    node.printNode();
-    printTree(node.left);
-    printTree(node.right);
+function printTraversals(root) {
+    console.log("Inorder traversal:");
+    inorder(root);
+    console.log("Preorder traversal:");
+    preOrder(root);
+    console.log("Postorder traversal:");
+    postOrder(root);
 }
 
-printTree(root);
+printTraversals(root);
